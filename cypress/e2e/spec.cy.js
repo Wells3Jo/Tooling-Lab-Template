@@ -1,32 +1,24 @@
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('index.html')
-    // at first, no option should be selected
-
-
-// Select option(s) with matching text content
-cy.get('.action-select').select('--Pick a name--')
 // confirm the apples were selected
 // note that each value starts with "fr-" in our HTML
 
+//Adds a player name
+cy.get('.form-control').type('ben')
+cy.get('.form-control').should('have.value', 'ben')
 
-cy.get('.action-yourname').type('ben')
-cy.get('.action-yourname').should('have.value', 'ben')
-cy.get('.action-select').select(['bill', 'bob', 'ben'])
-cy.get('.action-select')
-// when getting multiple values, invoke "val" method first
-.invoke('val').should('deep.equal', ['fr-bill', 'fr-bob', 'fr-ben'])
-
-// Select option(s) with matching value
-cy.get('.action-select').select('fr-ben')
+//Player hits start
+cy.get('.btn-btn-primary').click()
 
 
-cy.get('.action-select').select(['fr-bill', 'fr-bob', 'fr-ben'])
-cy.get('.action-select').invoke('val').should('deep.equal', ['fr-bill', 'fr-bob', 'fr-ben'])
+//Player chooses with move to throw
+cy.get('.custom-select').select('Scissors')
+//Player hits go to submit their move
+cy.get('.btn-btn-success').click()
 
-// assert the selected values include oranges
-cy.get('.action-select').invoke('val').should('include', 'fr-bob')
-  })
+
+})
 
   
 })
