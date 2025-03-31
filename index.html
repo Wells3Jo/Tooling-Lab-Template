@@ -16,6 +16,21 @@
         <h1 class="mainHeader">Rock Paper Scissors</h1>
         <div id="score-tally"><span></span><span></span></div>
         <div id="welcome-screen">
+            <form action="/action_page.php">
+                <input class="action-yourname" type="text" id="username" name="username" required placeholder="Enter Name Here..." minlength="2"
+                        maxlength="15" />
+                <label for="--Pick a name--">Find your name:</label>
+                <select name="--Pick a name--" class="action-select">
+                    
+                  <option value="--Pick a name--">--Pick a name--</option>
+                  <option value="fr-bill">bill</option>
+                  <option value="fr-bob">bob</option>
+                  <option value="fr-ben">ben</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+              </form>
+            
             <form id="name-form">
                 <div class="form-group">
                     <label for="username">Type your name: </label>
